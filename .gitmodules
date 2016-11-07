@@ -1,6 +1,4 @@
 [submodule "angular.js"]
 	path = angular.js
 	url = https://github.com/angular/angular.js
-[submodule "material"]
-	path = material
-	url = https://github.com/angular/material
+
