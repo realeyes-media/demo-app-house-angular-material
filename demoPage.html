@@ -1,0 +1,79 @@
+<html ng-app="todoApp">
+   <head>
+      <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+      <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
+      <script src="/bower_components/angular-aria/angular-aria.js"></script>
+      <script src="/bower_components/angular-animate/angular-animate.js"></script>
+      <script src="/bower_components/angular-material/angular-material.js"></script>
+      <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+     
+      <link rel="stylesheet" href="todo.css">
+  
+      <script src="todo.js"></script>
+   </head>
+   
+   <body>
+      <div ng-controller="TodoListController as todoList" style="width:400px; margin-left:auto; margin-right:auto">
+         <md-content class="md-padding" layout-xs="column" layout="row" >
+            <div flex-xs flex-gt-xs="100" layout="column">
+               <md-card>
+                  <md-sidenav md-component-id="left" md-is-open="isSidenavOpen" class="md-sidenav-left">
+                     <md-list flex>
+                     <md-list-item>
+                        <h1>Reviews</h1>
+                     </md-list-item>
+                     <md-list-item class="md-3-line"  ng-repeat=" item in reviewList" ng-click="null">
+                        <img ng-src="human.jpg" class="md-avatar" />
+                        <div class="md-list-item-text" layout="column">
+                           <h3>{{item.name}}</h3>
+                           <h4> {{item.rating}} </h4>
+                           <p>{{item.review}}</p>
+                        </div>
+                     </md-list-item>
+                  </md-sidenav>
+                  <md-card-title>
+                     <md-card-title-text>
+                        <span class="md-headline">
+                           Wiki House 
+                           <md-button class="md-icon-button" style="float:right" ng-click="openLeftMenu()">
+                              <md-icon aria-label="more_vert">more_vert</md-icon>
+                           </md-button>
+                        </span>
+                     </md-card-title-text>
+                  </md-card-title>
+                  <img src='house.jpg'>
+                  <md-list-item>
+                     <md-input-container class="md-block">
+                        <label>Name</label>
+                        <input ng-model="name">
+                     </md-input-container>
+                  </md-list-item>
+                  <md-list-item>
+                     <md-input-container class="md-block">
+                        <label>Review</label>
+                        <input ng-model="review">
+                     </md-input-container>
+                  </md-list-item>
+                  <md-list-item>
+                     <md-input-container class="md-block">
+                        <label>Comments</label>
+                        <input ng-model="comment">
+                     </md-input-container>
+                  </md-list-item>
+                  <md-card-actions layout="row" layout-align="start center">
+                     <md-list-item>
+                        <md-button class="md-raised md-primary" ng-click="addReview(name, review, comment)" >Submit</md-button>
+                     </md-list-item>
+                  </md-card-actions>
+                  <md-card-content>
+                     <md-list-item ng-repeat="topping in toppings">
+                        <p> {{ topping }} </p>
+                        <md-checkbox class="md-secondary" ng-model="topping.wanted"></md-checkbox>
+                     </md-list-item>
+                  </md-card-content>
+               </md-card>
+            </div>
+         </md-content>
+      </div>
+   </body>
+</html>
